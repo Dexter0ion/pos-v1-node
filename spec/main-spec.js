@@ -1,11 +1,19 @@
-const main = require('../main/main');
+const main = require('../main/main.js');
+const database = require('../main/datbase.js');
+
+var loadAllItems = database.loadAllItems;
+var loadPromotions = database.loadPromotions;
+var printInventory = main.printInventory;
+var loadItemFromDatabse = main.loadItemFromDatabase;
+var loadPromotFromDatabase = main.loadPromotFromDatabase;
 
 describe('pos', function () {
     var allItems;
     var inputs;
-
+    var allPromots;
     beforeEach(function () {
         allItems = loadAllItems();
+        allPromots = loadPromotions();
         inputs = [
             'ITEM000001',
             'ITEM000001',
@@ -18,6 +26,8 @@ describe('pos', function () {
             'ITEM000005'
         ];
     });
+
+
 
     it('should print correct text', function () {
 
@@ -41,4 +51,18 @@ describe('pos', function () {
 
         expect(console.log).toHaveBeenCalledWith(expectText);
     });
+
+    //主函数获取货物测试
+    it('should print all item infomation', function () {
+        spyOn(console, 'log');
+        main.main();
+        expect(console.log).toHaveBeenCalledWith(allItems);
+    });
+    //主函数获取促销信息测试
+    it('should pring all promotion infomation',function(){
+        spyOn(console,'log');
+        main.main();
+        expect(console.log).toHaveBeenCalledWith(allPromots);
+
+    })
 });
