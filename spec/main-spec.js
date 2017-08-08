@@ -6,6 +6,7 @@ var loadPromotions = database.loadPromotions;
 var printInventory = main.printInventory;
 var loadItemFromDatabse = main.loadItemFromDatabase;
 var loadPromotFromDatabase = main.loadPromotFromDatabase;
+var processItemInfo = main.processItemInfo;
 
 describe('pos', function () {
     var allItems;
@@ -52,6 +53,8 @@ describe('pos', function () {
         expect(console.log).toHaveBeenCalledWith(expectText);
     });
 
+
+/*
     //主函数获取货物测试
     it('should print all item infomation', function () {
         spyOn(console, 'log');
@@ -59,10 +62,25 @@ describe('pos', function () {
         expect(console.log).toHaveBeenCalledWith(allItems);
     });
     //主函数获取促销信息测试
-    it('should pring all promotion infomation',function(){
-        spyOn(console,'log');
+    it('should pring all promotion infomation', function () {
+        spyOn(console, 'log');
         main.main();
         expect(console.log).toHaveBeenCalledWith(allPromots);
 
     })
+
+    
+        //促销处理后货物清单测试
+    it('should print correct item list after promotion', function () {
+
+        spyOn(console,'log');
+        main.processItemInfo(inputs);
+
+        var expectTextPromot =
+            [{ send: 'ITEM000001', count: 1 },
+            { send: 'ITEM000005', count: 1 }]
+        expect(console.log).toHaveBeenCalledWith(expectTextPromot);
+
+    });
+    */
 });
