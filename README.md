@@ -1,7 +1,7 @@
 ![](https://github.com/Dexter0ion/pos-v1-node/blob/master/pos1-pass.PNG?raw=true)
 # POS Project v1
 
-POS收银机 版本：v1
+POS收银机 版本：v1.1
 
 ## 教学目标
 
